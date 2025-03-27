@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const l of e)if(l.type==="childList")for(const a of l.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&o(a)}).observe(document,{childList:!0,subtree:!0});function r(e){const l={};return e.integrity&&(l.integrity=e.integrity),e.referrerPolicy&&(l.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?l.credentials="include":e.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function o(e){if(e.ep)return;e.ep=!0;const l=r(e);fetch(e.href,l)}})();const d=()=>`
+(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))t(e);new MutationObserver(e=>{for(const l of e)if(l.type==="childList")for(const n of l.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&t(n)}).observe(document,{childList:!0,subtree:!0});function s(e){const l={};return e.integrity&&(l.integrity=e.integrity),e.referrerPolicy&&(l.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?l.credentials="include":e.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function t(e){if(e.ep)return;e.ep=!0;const l=s(e);fetch(e.href,l)}})();const d=()=>`
       <header class="bg-blue-600 text-white p-4 sticky top-0">
         <h1 class="text-2xl font-bold">항해플러스</h1>
       </header>
@@ -31,16 +31,16 @@
   </div>
 `,f=()=>`
       <div class="space-y-4">
-         ${[{name:"홍길동",time:"5분 전",text:"오늘 날씨가 정말 좋네요. 다들 좋은 하루 보내세요!"},{name:"김철수",time:"15분 전",text:"새로운 프로젝트를 시작했어요. 열심히 코딩 중입니다!"},{name:"이영희",time:"30분 전",text:"오늘 점심 메뉴 추천 받습니다. 뭐가 좋을까요?"},{name:"박민수",time:"1시간 전",text:"주말에 등산 가실 분 계신가요? 함께 가요!"},{name:"정수연",time:"2시간 전",text:"새로 나온 영화 재미있대요. 같이 보러 갈 사람?"}].map(({name:t,time:r,text:o})=>` 
+         ${[{name:"홍길동",time:"5분 전",text:"오늘 날씨가 정말 좋네요. 다들 좋은 하루 보내세요!"},{name:"김철수",time:"15분 전",text:"새로운 프로젝트를 시작했어요. 열심히 코딩 중입니다!"},{name:"이영희",time:"30분 전",text:"오늘 점심 메뉴 추천 받습니다. 뭐가 좋을까요?"},{name:"박민수",time:"1시간 전",text:"주말에 등산 가실 분 계신가요? 함께 가요!"},{name:"정수연",time:"2시간 전",text:"새로 나온 영화 재미있대요. 같이 보러 갈 사람?"}].map(({name:r,time:s,text:t})=>` 
            <div class="bg-white rounded-lg shadow p-4">
             <div class="flex items-center mb-2">
               <img src="https://placehold.co/40" alt="프로필" class="rounded-full mr-2">
               <div>
-                <p class="font-bold">${t}</p>
-                <p class="text-sm text-gray-500">${r}</p>
+                <p class="font-bold">${r}</p>
+                <p class="text-sm text-gray-500">${s}</p>
               </div>
             </div>
-            <p>${o}</p>
+            <p>${t}</p>
             <div class="mt-2 flex justify-between text-gray-500">
               <button>좋아요</button>
               <button>댓글</button>
@@ -63,7 +63,7 @@
       </form>
     </div>
   </main>
-`,p=()=>{const{username:s,email:t,bio:r}=JSON.parse(localStorage.getItem("user")||"{}");return`
+`,p=()=>{const{username:o,email:r,bio:s}=JSON.parse(localStorage.getItem("user")||"{}");return`
   <div class="bg-gray-100 min-h-screen flex justify-center">
     <div class="max-w-md w-full">
       ${d()}
@@ -74,15 +74,15 @@
           <form id="profile-form">
             <div class="mb-4">
               <label for="username" class="block text-gray-700 text-sm font-bold mb-2">사용자 이름</label>
-              <input type="text" id="username" name="username" value="${s}" class="w-full p-2 border rounded" />
+              <input type="text" id="username" name="username" value="${o}" class="w-full p-2 border rounded" />
             </div>
             <div class="mb-4">
               <label for="email" class="block text-gray-700 text-sm font-bold mb-2">이메일</label>
-              <input type="email" id="email" name="email" value="${t}" class="w-full p-2 border rounded" />
+              <input type="email" id="email" name="email" value="${r}" class="w-full p-2 border rounded" />
             </div>
             <div class="mb-6">
               <label for="bio" class="block text-gray-700 text-sm font-bold mb-2">자기소개</label>
-              <textarea id="bio" name="bio" rows="4" class="w-full p-2 border rounded">${r}</textarea>
+              <textarea id="bio" name="bio" rows="4" class="w-full p-2 border rounded">${s}</textarea>
             </div>
             <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded font-bold">프로필 업데이트</button>
           </form>
@@ -100,4 +100,4 @@
       <a href="/" data-link class="bg-blue-600 text-white px-4 py-2 rounded font-bold">홈으로 돌아가기</a>
     </div>
   </main>
-`,x={"/":m,"/login":b,"/profile":p};function i(){const s=window.location.pathname,t=JSON.parse(localStorage.getItem("user")||"null");if(s==="/profile"&&!t)return n("/login");if(s==="/login"&&t)return n("/");const r=x[s]||g;document.getElementById("root").innerHTML=r(),v()}function n(s){window.history.pushState({},"",s),i()}function v(){document.querySelectorAll("[data-link]").forEach(o=>{o.addEventListener("click",e=>{e.preventDefault(),n(e.target.getAttribute("href"))})});const s=document.getElementById("login-form");s&&s.addEventListener("submit",o=>{o.preventDefault();const e=document.getElementById("username").value.trim();if(!e)return alert("이름을 입력해주세요");const l={username:e,email:"",bio:""};localStorage.setItem("user",JSON.stringify(l)),n("/")});const t=document.getElementById("profile-form");t&&t.addEventListener("submit",o=>{o.preventDefault();const e={username:document.getElementById("username").value,email:document.getElementById("email").value,bio:document.getElementById("bio").value};localStorage.setItem("user",JSON.stringify(e)),n("/profile")});const r=document.getElementById("logout");r&&r.addEventListener("click",o=>{o.preventDefault(),localStorage.removeItem("user"),n("/login")})}window.addEventListener("popstate",i);window.addEventListener("DOMContentLoaded",i);
+`,x={"/":m,"/login":b,"/profile":p};function i(){const s=window.location.pathname.replace("/front_5th_chapter1-1/".replace(/\/$/,""),"")||"/",t=JSON.parse(localStorage.getItem("user")||"null");if(s==="/profile"&&!t)return a("/login");if(s==="/login"&&t)return a("/");const e=x[s]||g;document.getElementById("root").innerHTML=e(),v()}function a(o){window.history.pushState({},"",o),i()}function v(){document.querySelectorAll("[data-link]").forEach(t=>{t.addEventListener("click",e=>{e.preventDefault(),a(e.target.getAttribute("href"))})});const o=document.getElementById("login-form");o&&o.addEventListener("submit",t=>{t.preventDefault();const e=document.getElementById("username").value.trim();if(!e)return alert("이름을 입력해주세요");const l={username:e,email:"",bio:""};localStorage.setItem("user",JSON.stringify(l)),a("/")});const r=document.getElementById("profile-form");r&&r.addEventListener("submit",t=>{t.preventDefault();const e={username:document.getElementById("username").value,email:document.getElementById("email").value,bio:document.getElementById("bio").value};localStorage.setItem("user",JSON.stringify(e)),a("/profile")});const s=document.getElementById("logout");s&&s.addEventListener("click",t=>{t.preventDefault(),localStorage.removeItem("user"),a("/login")})}window.addEventListener("popstate",i);window.addEventListener("DOMContentLoaded",i);
